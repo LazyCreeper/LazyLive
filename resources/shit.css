@@ -1,0 +1,150 @@
+body {
+	font-family: 'Open Sans','Segoe UI','Helvetica','Arial','sans-serif','Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol' ! important;
+	font-weight: 200;
+	background-color: #F1F1F1 ;
+	color: #f4f9ff;
+}
+
+input:focus-visible {
+	border: none!important;
+}
+
+#bg {
+	/**background-image: linear-gradient(135deg, rgba(43,70,82,0.5) 0%, rgba(18,30,41) 100%),url(https://api.imlazy.ink/img/);
+	background-image:url(../c1ebff.png);
+	background-size: cover;
+	background-repeat: no-repeat;**/
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: -3;
+	background-color: #edf2f2;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='82' height='41' viewBox='0 0 82 41'%3E%3Cdefs%3E%3Crect stroke='%23edf2f2' stroke-width='0.21' width='1' height='1' id='s'/%3E%3Cpattern id='a' width='2' height='2' patternUnits='userSpaceOnUse'%3E%3Cg stroke='%23edf2f2' stroke-width='0.21'%3E%3Crect fill='%23e8eded' width='1' height='1'/%3E%3Crect fill='%23edf2f2' width='1' height='1' x='1' y='1'/%3E%3Crect fill='%23e4e8e8' width='1' height='1' y='1'/%3E%3Crect fill='%23dfe3e3' width='1' height='1' x='1'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='b' width='5' height='11' patternUnits='userSpaceOnUse'%3E%3Cg fill='%23dadfdf'%3E%3Cuse xlink:href='%23s' x='2' y='0'/%3E%3Cuse xlink:href='%23s' x='4' y='1'/%3E%3Cuse xlink:href='%23s' x='1' y='2'/%3E%3Cuse xlink:href='%23s' x='2' y='4'/%3E%3Cuse xlink:href='%23s' x='4' y='6'/%3E%3Cuse xlink:href='%23s' x='0' y='8'/%3E%3Cuse xlink:href='%23s' x='3' y='9'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='c' width='7' height='7' patternUnits='userSpaceOnUse'%3E%3Cg fill='%23d5dada'%3E%3Cuse xlink:href='%23s' x='1' y='1'/%3E%3Cuse xlink:href='%23s' x='3' y='4'/%3E%3Cuse xlink:href='%23s' x='5' y='6'/%3E%3Cuse xlink:href='%23s' x='0' y='3'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='d' width='11' height='5' patternUnits='userSpaceOnUse'%3E%3Cg fill='%23edf2f2'%3E%3Cuse xlink:href='%23s' x='1' y='1'/%3E%3Cuse xlink:href='%23s' x='6' y='3'/%3E%3Cuse xlink:href='%23s' x='8' y='2'/%3E%3Cuse xlink:href='%23s' x='3' y='0'/%3E%3Cuse xlink:href='%23s' x='0' y='3'/%3E%3C/g%3E%3Cg fill='%23d1d5d5'%3E%3Cuse xlink:href='%23s' x='8' y='3'/%3E%3Cuse xlink:href='%23s' x='4' y='2'/%3E%3Cuse xlink:href='%23s' x='5' y='4'/%3E%3Cuse xlink:href='%23s' x='10' y='0'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='e' width='47' height='23' patternUnits='userSpaceOnUse'%3E%3Cg fill='%237fb7bb'%3E%3Cuse xlink:href='%23s' x='2' y='5'/%3E%3Cuse xlink:href='%23s' x='23' y='13'/%3E%3Cuse xlink:href='%23s' x='4' y='18'/%3E%3Cuse xlink:href='%23s' x='35' y='9'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='f' width='61' height='31' patternUnits='userSpaceOnUse'%3E%3Cg fill='%237fb7bb'%3E%3Cuse xlink:href='%23s' x='16' y='0'/%3E%3Cuse xlink:href='%23s' x='13' y='22'/%3E%3Cuse xlink:href='%23s' x='44' y='15'/%3E%3Cuse xlink:href='%23s' x='12' y='11'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23a)' width='82' height='41'/%3E%3Crect fill='url(%23b)' width='82' height='41'/%3E%3Crect fill='url(%23c)' width='82' height='41'/%3E%3Crect fill='url(%23d)' width='82' height='41'/%3E%3Crect fill='url(%23e)' width='82' height='41'/%3E%3Crect fill='url(%23f)' width='82' height='41'/%3E%3C/svg%3E");
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+.CardTitle {
+	padding: 16px;
+	font-size: 2vh;
+	margin: 0;
+	line-height: 1;
+	font-weight: bold;
+}
+  
+.CardBody {
+	padding: 0px 12px 10px 12px;
+	font-weight: 400;
+	font-size: 14px;
+}
+  
+.mb10 {
+	margin-bottom: 10px;
+}
+
+.logo {
+	margin-bottom: 12px;
+	margin-top:30px;
+}
+
+#dplayer {
+	width: 100%;
+	height: 512px;
+	zoom: 1.1;
+	display: none;
+}
+
+#notstart {
+	display: none;
+	text-align: center;
+	width: 100%;
+	height: 512px;
+	zoom: 1.1;
+	background: #333333;
+	color: #FFFFFF;
+}
+
+#notstart img {
+	width: 320px;
+	max-width: 100%;
+	margin-top: 64px;
+}
+
+.comments {
+	font-size: 16px;
+	font-weight: bold;
+	display: inline-block;
+	width: 100%;
+	color: #7fa5bc;
+}
+
+.commentdata {
+	width: 100%;
+	height: 492px;
+	overflow-y: auto;
+}
+
+.msgcontent .headimg {
+	display: inline-block;
+	width: 32px;
+}
+
+.msgcontent .headimg img {
+	width: 100%;
+	border-radius: 50%;
+}
+
+.msgcontent .msg {
+	display: block;
+}
+
+.inputcontent {
+	width: 100%;
+    height: 30px;
+    background: transparent;
+    border-top: 1px solid #787d9a;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    padding: 4px;
+    color: unset;
+}
+
+.player {
+	padding-right: 5px ! important;
+}
+
+.active {
+	border-left: 3px solid rgb(255, 161, 161);
+}
+
+.NekohaShizuku {
+	position: fixed;
+    width: 30em;
+    bottom: 0;
+    right: 0;
+}
+
+.livEstatus {
+	background: #ffeb00;
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    vertical-align: 4%;
+    margin-right: 5px;
+    border-radius: 6px;
+}
+
+.swal2-container.swal2-center>.swal2-popup {
+	font-size:16px;
+}
+
+@media screen and (max-width: 768px) {
+	.phone-visit {
+		display: none !important;
+	}
+
+	body {
+		padding-bottom: 32px;
+	}
+}
