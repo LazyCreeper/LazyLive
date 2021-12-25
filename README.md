@@ -1,10 +1,10 @@
 # 这是什么?
-这是[Lazy's Live](https://live.lazy.ink)的前端源码。
-用户和聊天部分对接了Blessing Skin的yggdrasil API，所以无须数据库。
-不知道怎么用php来创建Websocket会话，所以这个'index.php'只是个摆设，后缀'.php'改为'.html'照样用
-这也就是说这玩意就是一个纯静态页面，无需php环境也能跑*
-这玩意主要是针对像我这种家里不仅有公网还有服务器的人使用，，，，
-~~~应该没多少人会对这个东西感兴趣吧，毕竟写得跟个屎山一样~~~
+- 这是[Lazy's Live](https://live.lazy.ink)的前端源码。
+- 用户和聊天部分对接了Blessing Skin的yggdrasil API，所以无须数据库。
+- 不知道怎么用php来创建Websocket会话，所以这个'index.php'只是个摆设，后缀'.php'改为'.html'照样用
+- 这也就是说这玩意就是一个纯静态页面，无需php环境也能跑*
+- 这玩意主要是针对像我这种家里不仅有公网还有服务器的人使用，，，，
+- ~~所以应该没多少人会对这个东西感兴趣吧，毕竟写得跟个屎山一样~~
 
 ## 运行环境
 1. 静态页面: Nginx,Apache,IIS均可
