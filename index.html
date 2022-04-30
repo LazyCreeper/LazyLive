@@ -8,13 +8,12 @@
 		<title>Lazy's Live</title>
 		<link rel="icon" href="https://i.zerodream.net/86b5133c13a7e7109b89f8d24fc0b746.jpg">
 		<link rel="stylesheet" href="./resources/shit.css?version=202109211212">
-		<link href="https://cdn.bootcdn.net/ajax/libs/mdui/1.0.2/css/mdui.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/css/mdui.min.css" />
 		<link href="https://cdn.bootcdn.net/ajax/libs/dplayer/1.9.1/DPlayer.min.css" rel="stylesheet">
-		<link href="https://s1.imlazy.ink:233/node_modules/@sweetalert2/theme-material-ui/material-ui.css" rel="stylesheet">
 	</head>
 	<body class="mdui-theme-layout-auto">
 		<div id="bg"></div>
-		<img class="NekohaShizuku" src="https://imgs.lovpass.cn/img/2021/06/30/99535bc41007020210630.png">
+		<img class="NekohaShizuku" src="https://s1.imlazy.ink:233/img/2021/06/30/99535bc41007020210630.png">
 		<div class="mdui-container">
 			<div class="mdui-row">
 				<div class="mdui-col-sm-12">
@@ -70,7 +69,7 @@
 					<div class="mdui-card">
 						<div class="mdui-card-content mdui-text-center mdui-typo">
                 			<strong>
-                  				Copyright © 2021 <a href="https://www.lazy.ink/" target="_blank">Lazy</a> Rights Reserved.
+                  				Copyright © 2022 <a href="https://www.lazy.ink/" target="_blank">Lazy</a> Rights Reserved.
                				 </strong>
               			</div>
 					</div>
@@ -82,8 +81,8 @@
 		<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 		<script src="https://cdn.bootcdn.net/ajax/libs/dplayer/1.26.0/DPlayer.min.js"></script>
 		<script type="text/javascript" src="./resources/jquery.min.js"></script>
-		<script src="https://cdn.bootcdn.net/ajax/libs/mdui/1.0.2/js/mdui.min.js"></script>
-		<script src="https://s1.imlazy.ink:233/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/js/mdui.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 		<script type="text/javascript">
 			//初始化播放器
 			const dp = new DPlayer({
@@ -131,7 +130,7 @@
 							'使用你的 FxCraft 账号'+
     						'<input id="username" type="text" class="swal2-input" placeholder="玩家名或邮箱">' +
     						'<input id="password" type="password" class="swal2-input" placeholder="密码">'+
-							'<br><a href="https://www.fxcraft.cn/auth/register">我没账号</a> | <a href="https://www.fxcraft.cn/auth/forgot">忘记密码</a>',
+							'<br><a href="https://index.fxcraft.cn/auth/register">我没账号</a> | <a href="https://index.fxcraft.cn/auth/forgot">忘记密码</a>',
   						focusConfirm: false,
 						showCancelButton: true,
 						cancelButtonText: '取消',
@@ -143,7 +142,7 @@
 							// 技术菜，没办法
 							$.ajax({
       							type: "POST",
-      							url: "https://www.fxcraft.cn/api/yggdrasil/authserver/authenticate/",
+      							url: "https://index.fxcraft.cn/api/yggdrasil/authserver/authenticate/",
 								contentType: "application/json",
 								dataType : "json",
       							data: JSON.stringify({"username": $("#username").val(),"password": $("#password").val()}),
@@ -278,7 +277,7 @@
                     	break;
                 	case  'chat':
 						// 聊天区头像
-                    	p_time.innerHTML = "<img src=https://www.fxcraft.cn/avatar/player/"+data.name+"?size=16>&nbsp;"+data.name+"：";
+                    	p_time.innerHTML = "<img src=https://index.fxcraft.cn/avatar/player/"+data.name+"?size=16>&nbsp;"+data.name+"：";
                     	p_content.innerHTML = data.message;
                     	break;
                 	default:
