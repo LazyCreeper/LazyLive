@@ -1,8 +1,11 @@
 body {
-	font-family: 'Open Sans','Segoe UI','Helvetica','Arial','sans-serif','Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol' ! important;
 	font-weight: 200;
 	background-color: #F1F1F1 ;
 	color: #f4f9ff;
+}
+
+body, button, input, textarea {
+  font-family: MiSans,'Open Sans','Segoe UI','Helvetica','Arial','sans-serif','Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol'!important;
 }
 
 input:focus-visible {
