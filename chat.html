@@ -8,8 +8,6 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
-  <meta name="keywords" content="Lazy,lazy,Lazy's Live,lazylive,lazyslive,live,Lazy的直播间">
-	<meta name="description" content="Lazy的个人直播间">
 	<meta name="author" content="Lazy">
   <meta http-equiv="X-UA-Compatible" content="IE=11" />
   <title>Lazy's Live Chat</title>
@@ -22,7 +20,6 @@
     body {
       font-weight: 200;
       background-color: #F1F1F1;
-      color: #f4f9ff;
     }
 
     body,
@@ -164,7 +161,14 @@
     src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/limonte-sweetalert2/11.4.4/sweetalert2.all.min.js"></script>
   <script type="text/javascript">
     //WARN：部分JS代码使用Ctrl+c，Ctrl+V进行编写，如有雷同，纯属借鉴！
-
+    $("#content").prepend(`
+██╗      █████╗ ███████╗██╗   ██╗  ██  ███████╗    ██╗     ██╗██╗   ██╗███████╗
+██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝  ██  ██╔════╝    ██║     ██║██║   ██║██╔════╝
+██║     ███████║  ███╔╝  ╚████╔╝       ███████╗    ██║     ██║██║   ██║█████╗  
+██║     ██╔══██║ ███╔╝    ╚██╔╝        ╚════██║    ██║     ██║╚██╗ ██╔╝██╔══╝  
+███████╗██║  ██║███████╗   ██║         ███████║    ███████╗██║ ╚████╔╝ ███████╗
+╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝         ╚══════╝    ╚══════╝╚═╝  ╚═══╝  ╚══════╝
+\nCopyright 2022 Lazy All rights reserved\n + Version 2.0\n[WELCOME] 欢迎使用 Lazy's Live 聊天服务`)
     //获取并刷新以前保存的Token
     if (localStorage.getItem("accessToken") != "") {
       $.ajax({
@@ -403,7 +407,7 @@
 
     //清空聊天栏
     function clearChat() {
-      $("#content").html('<div class="msg"><b>已清空聊天框</b></div>');
+      $("#content").html('<div class="msg"><b>SYSTEM: </b>已清空聊天框</div>');
     }
 
     //退出登录
