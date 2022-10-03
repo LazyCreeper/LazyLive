@@ -207,15 +207,15 @@
     });
 
     //获取并刷新以前保存的Token
-    if (getCookie("accessToken") != "") {
+    if (localStorage.getItem("accessToken") != "") {
       $.ajax({
         type: "POST",
         url: "https://skin.fxcraft.cn/api/yggdrasil/authserver/validate",
         contentType: "application/json",
         dataType: "json",
         data: JSON.stringify({
-          accessToken: getCookie("accessToken"),
-          clientToken: getCookie("clientToken"),
+          accessToken: localStorage.getItem("accessToken"),
+          clientToken: localStorage.getItem("clientToken"),
         }),
         success: function (data) {
           mdui.snackbar({
@@ -226,7 +226,7 @@
           connectWs();
           $(".login-top").replaceWith(
             "<span id=loginnedname onclick=logOut()>" +
-            getCookie("username") +
+              localStorage.getItem("username") +
             "</span>"
           );
           mdui.mutation();
@@ -255,10 +255,10 @@
         success: function (sucMsg) {
           console.log(sucMsg);
 
-          //保存cookie数据
-          document.cookie = "accessToken=" + sucMsg.accessToken;
-          document.cookie = "clientToken=" + sucMsg.clientToken;
-          document.cookie = "username=" + sucMsg.selectedProfile.name;
+          //保存数据
+          localStorage.setItem("username", sucMsg.selectedProfile.name);
+          localStorage.setItem("accessToken", sucMsg.accessToken);
+          localStorage.setItem("clientToken", sucMsg.clientToken);
           mdui.snackbar({
             message: "登录成功",
             position: "right-top",
@@ -285,8 +285,8 @@
     function connectWs() {
       //建立连接,并发送连接进入房间(并且连接会一直保存,进行服务端的轮询)
       //ws = new WebSocket("wss://s1.imlazy.ink:233/livews?usertoken="+getCookie("accessToken")+"&clientToken="+getCookie("clientToken"));
-      var aT = getCookie("accessToken");
-      var cT = getCookie("clientToken");
+      var aT = localStorage.getItem("accessToken");
+      var cT = localStorage.getItem("clientToken");
       ws = new WebSocket(
         "ws://localhost:8848/?accessToken=" + aT + "&clientToken=" + cT
         //wss://s1.imlazy.ink:233/livews/?accessToken=" + aT + "&clientToken=" + cT
@@ -300,7 +300,7 @@
       ws.onopen = () => {
         let data = {
           "type": "setName",
-          "nickname": getCookie("username"),
+          "nickname": localStorage.getItem("username"),
         };
         ws.send(JSON.stringify(data));
       };
@@ -357,19 +357,6 @@
         );
       };
     }
-
-    //获取Cookie
-    function getCookie(cname) {
-      var name = cname + "=";
-      var ca = document.cookie.split(";");
-      for (var i = 0; i < ca.length; i++) {
-        var c = ca[i].trim();
-        if (c.indexOf(name) == 0) {
-          return c.substring(name.length, c.length);
-        }
-      }
-      return "";
-    } //getCookie("name");
   </script>
   <script type="text/javascript" language="JavaScript">
     //定义全局的变量
@@ -471,8 +458,8 @@
           contentType: "application/json",
           dataType: "json",
           data: JSON.stringify({
-            accessToken: getCookie("accessToken"),
-            clientToken: getCookie("clientToken"),
+            accessToken: localStorage.getItem("accessToken"),
+            clientToken: localStorage.getItem("clientToken"),
           }),
           success: function (data) {
             console.log("吊销令牌成功");
@@ -480,9 +467,9 @@
               message: "登出成功，正在重新加载页面...",
               position: "top",
             });
-            document.cookie = "accessToken=";
-            document.cookie = "clientToken=";
-            document.cookie = "username=";
+            localStorage.setItem("accessToken", "")
+            localStorage.setItem("clientToken", "")
+            localStorage.setItem("username", "")
             location.reload();
           },
         });
