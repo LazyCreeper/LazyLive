@@ -1,0 +1,437 @@
+<!--
+  Lazy's Live Chat
+  Copyright 2022 Lazy All rights reserved.
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <title>Lazy's Live Chat</title>
+  <link rel="icon" href="https://tva1.sinaimg.cn/large/008qLT8ggy1h6q69154tij30ku0lbtl1.jpg" />
+  <link
+    href="https://font.sec.miui.com/font/css?family=MiSans:400,500,600,700:Chinese_Simplify,Latin,Chinese_Traditional&amp;display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/mdui/1.0.2/css/mdui.min.css" />
+  <style>
+    body {
+      font-weight: 200;
+      background-color: #F1F1F1;
+      color: #f4f9ff;
+    }
+
+    body,
+    button,
+    input,
+    textarea {
+      font-family:MiSans, 'Open Sans', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' !important;
+    }
+
+    pre {
+      font-family: Cascadia Code,MiSans;
+    }
+
+    input:focus-visible {
+      border: none !important;
+    }
+
+    .comments {
+      font-size: 16px;
+      font-weight: bold;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .commentdata {
+      width: 100%;
+      height: 80vh;
+      overflow-y: auto;
+    }
+
+    .msgcontent .headimg {
+      display: inline-block;
+      width: 32px;
+    }
+
+    .msgcontent .headimg img {
+      width: 100%;
+      border-radius: 50%;
+    }
+
+    .msgcontent .msg {
+      display: block;
+    }
+
+    .inputcontent {
+      width: 100%;
+      height: 30px;
+      background: transparent;
+      border-top: 1px solid #787d9a;
+      border-left: 0;
+      border-right: 0;
+      border-bottom: 0;
+      padding: 4px;
+      color: unset;
+    }
+  </style>
+</head>
+
+<body class="mdui-theme-layout-auto">
+  <div class="mdui-appbar">
+    <div class="mdui-toolbar mdui-color-light-blue-a700">
+      <a href="javascript:;" class="mdui-typo-headline">Live Chat</a>
+      <a href="javascript:;" class="mdui-typo-title phone-visit">直播聊天</a>
+      <div class="mdui-toolbar-spacer"></div>
+      <a href="javascript:void(0);" class="mdui-shadow-3 mdui-btn mdui-btn-ripple">
+        <i class="mdui-icon material-icons">&#xe853;</i>
+        当前在线：<span id="online">-</span>人</span>
+      </a>
+      <a href="javascript:void(0);" class="mdui-shadow-3 mdui-btn mdui-btn-ripple">
+        <i class="mdui-icon material-icons">&#xe853;</i>
+        <span class="login-top" mdui-dialog="{target: '#loginDialog'}">未登录</span>
+      </a>
+    </div>
+  </div>
+  <div class="mdui-container-fluid">
+    <div class="mdui-row">
+      <div class="mdui-col commentlab">
+        <div class="comments">
+          <div class="CardBody commentdata">
+            <pre class="msgcontent" id="content"></pre>
+          </div>
+          <button class="mdui-btn loginned mdui-color-pink-400 mdui-ripple" mdui-dialog="{target: '#loginDialog'}">
+            登陆即可发送弹幕
+          </button>
+          <button class="mdui-btn mdui-ripple mdui-btn-raised mdui-color-light-blue-a700" onclick="clearChat()">
+            清空聊天框
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mdui-dialog" id="loginDialog">
+    <div class="mdui-dialog-title">登陆</div>
+    <div class="mdui-dialog-content">
+      <span>使用你的 FxCraft 账号进行登录</span>
+      <div class="mdui-textfield mdui-textfield-floating-label">
+        <i class="mdui-icon material-icons">person_outline</i>
+        <label class="mdui-textfield-label">邮箱或玩家名</label>
+        <input class="mdui-textfield-input" id="username" type="text" required />
+        <div class="mdui-textfield-error">邮箱或玩家名不能为空</div>
+      </div>
+      <div class="mdui-textfield mdui-textfield-floating-label">
+        <i class="mdui-icon material-icons">vpn_key</i>
+        <label class="mdui-textfield-label">密码</label>
+        <input class="mdui-textfield-input" id="password" type="password" required />
+        <div class="mdui-textfield-error">请输入密码</div>
+      </div>
+      <div class="mdui-float-left">
+        <a href="https://skin.fxcraft.cn/auth/register" target="_blank">
+          <button class="mdui-btn mdui-ripple mdui-text-color-teal">
+            我没账号
+          </button></a>
+        <a href="https://skin.fxcraft.cn/auth/forgot" target="_blank"><button
+            class="mdui-btn mdui-ripple mdui-text-color-light-blue" onclick="window.open('')">
+            忘了密码
+          </button></a>
+      </div>
+      <div class="mdui-float-right">
+        <p>注意：登陆后你的登录信息将会自动保存！</p>
+      </div>
+    </div>
+    <div class="mdui-dialog-actions">
+      <button class="mdui-btn mdui-ripple" mdui-dialog-cancel>取消</button>
+      <button class="mdui-btn mdui-ripple" mdui-dialog-confirm onclick="login()">
+        登录
+      </button>
+    </div>
+  </div>
+
+  <script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/hls.js/8.0.0-beta.3/hls.min.js"></script>
+  <script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/flv.js/1.6.2/flv.min.js"
+    type="application/javascript"></script>
+  <script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/dplayer/1.26.0/DPlayer.min.js"></script>
+  <script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.2.1/jquery.min.js"
+    type="application/javascript"></script>
+  <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/mdui/1.0.2/js/mdui.min.js"></script>
+  <script
+    src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/limonte-sweetalert2/11.4.4/sweetalert2.all.min.js"></script>
+  <script type="text/javascript">
+    //WARN：部分JS代码使用Ctrl+c，Ctrl+V进行编写，如有雷同，纯属借鉴！
+
+    //获取并刷新以前保存的Token
+    if (localStorage.getItem("accessToken") != "") {
+      $.ajax({
+        type: "POST",
+        url: "https://skin.fxcraft.cn/api/yggdrasil/authserver/validate",
+        contentType: "application/json",
+        dataType: "json",
+        data: JSON.stringify({
+          accessToken: localStorage.getItem("accessToken"),
+          clientToken: localStorage.getItem("clientToken"),
+        }),
+        success: function (data) {
+          mdui.snackbar({
+            message: "自动登录成功",
+            position: "right-top",
+          });
+          //建立ws链接
+          connectWs();
+          $(".login-top").replaceWith(
+            "<span id=loginnedname onclick=logOut()>" +
+            localStorage.getItem("username") +
+            "</span>"
+          );
+          mdui.mutation();
+          $(".loginned").replaceWith(
+            '<input type="text" id="comment" class="inputcontent" max="128" placeholder="输入后回车发送" onkeydown="keyup_submit(event);">'
+          );
+        },
+        error: function (errMsg) {
+          console.log(errMsg);
+          mdui.alert("令牌已过期或不存在，请重新登录", "登录失败");
+        },
+      });
+    }
+
+    //登录
+    function login() {
+      $.ajax({
+        type: "POST",
+        url: "https://skin.fxcraft.cn/api/yggdrasil/authserver/authenticate/",
+        contentType: "application/json",
+        dataType: "json",
+        data: JSON.stringify({
+          username: $("#username").val(),
+          password: $("#password").val(),
+        }),
+        success: function (sucMsg) {
+          console.log(sucMsg);
+
+          //保存数据
+          localStorage.setItem("username", sucMsg.selectedProfile.name);
+          localStorage.setItem("accessToken", sucMsg.accessToken);
+          localStorage.setItem("clientToken", sucMsg.clientToken);
+          mdui.snackbar({
+            message: "登录成功",
+            position: "right-top",
+          });
+          //建立ws链接
+          connectWs();
+          $(".login-top").replaceWith(
+            "<span id=loginnedname onclick=logOut()>" +
+            sucMsg.selectedProfile.name +
+            "</span>"
+          );
+          $(".loginned").replaceWith(
+            '<input type="text" id="comment" class="inputcontent" max="128" placeholder="输入后回车发送" onkeydown="keyup_submit(event);">'
+          );
+        },
+        error: function (errMsg) {
+          console.log(errMsg);
+          mdui.alert("请检查你的用户名和密码！", "登录失败");
+        },
+      });
+    }
+
+    //建立ws链接
+    function connectWs() {
+      //建立连接,并发送连接进入房间(并且连接会一直保存,进行服务端的轮询)
+      //ws = new WebSocket("wss://s1.imlazy.ink:233/livews?usertoken="+getCookie("accessToken")+"&clientToken="+getCookie("clientToken"));
+      var aT = localStorage.getItem("accessToken");
+      var cT = localStorage.getItem("clientToken");
+      ws = new WebSocket(
+        "ws://localhost:8848/?accessToken=" + aT + "&clientToken=" + cT
+        //wss://s1.imlazy.ink:233/livews/?accessToken=" + aT + "&clientToken=" + cT
+      );
+
+      //别乱连，不然会炸，，，，
+      ws.onerror = () => {
+        mdui.alert("Websocket 连接失败！", "错误")
+      };
+      //连接上来的时候
+      ws.onopen = () => {
+        let data = {
+          "type": "setName",
+          "nickname": localStorage.getItem("username"),
+        };
+        ws.send(JSON.stringify(data));
+      };
+
+      //当接受服务端的请求的时候
+      ws.onmessage = (e) => {
+        var ele = document.getElementById("content");
+        ele.scrollTop = ele.scrollHeight;
+
+        let data = JSON.parse(e.data);
+        //console.log(data);
+        //接受的消息为连接的人的个数的时候
+        if (data.type === "chatterList") {
+          let list = data.list;
+          let length = list.length;
+          //let userList = document.getElementById('userList');
+          document.getElementById("online").innerText = `${length}`;
+
+          //for(let i=0;i<list.length;i++){
+          //	let p_user = document.createElement('p');
+          //	p_user.setAttribute('class','userList-item');
+          //	p_user.innerText = list[i].name;
+          //	userList.appendChild(p_user)
+          //}
+        }
+
+        //当为接受消息的或者用户进入新房间的时候
+        else {
+          let message = data.message;
+          let oldContent = document.getElementById("content");
+          //console.log(createChatDiv(data));
+          const JoinRoom = {
+            text: message,
+            color: "#fff",
+            type: "right",
+          };
+          $("#content").prepend(createChatDiv(data));
+        }
+      };
+
+      ws.onclose = () => {
+        //Swal.fire({
+        //  icon: "error",
+        //  title: "错误",
+        //  text: "Websocket连接异常，聊天、弹幕功能将不可用！请刷新网页！",
+        //  cancelButtonText: "取消",
+        //  focusCancel: true,
+        //});
+        mdui.alert(
+          "Websocket连接异常，聊天、弹幕功能将不可用！请刷新网页！",
+          "错误"
+        );
+      };
+    }
+  </script>
+  <script type="text/javascript" language="JavaScript">
+    //定义全局的变量
+    let ws = null;
+
+    //封装获取时间的函数
+    Date.prototype.Format = function (fmt) {
+      var o = {
+        "M+": this.getMonth() + 1, //月份
+        "d+": this.getDate(), //日
+        "h+": this.getHours(), //小时
+        "m+": this.getMinutes(), //分
+        "s+": this.getSeconds(), //秒
+        "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+        S: this.getMilliseconds(), //毫秒
+      };
+      if (/(y+)/.test(fmt))
+        fmt = fmt.replace(
+          RegExp.$1,
+          (this.getFullYear() + "").substr(4 - RegExp.$1.length)
+        );
+      for (var k in o)
+        if (new RegExp("(" + k + ")").test(fmt))
+          fmt = fmt.replace(
+            RegExp.$1,
+            RegExp.$1.length == 1
+              ? o[k]
+              : ("00" + o[k]).substr(("" + o[k]).length)
+          );
+      return fmt;
+    };
+
+    //封装创建Div并且发送消息的函数
+    const createChatDiv = (data) => {
+      let div = document.createElement("div");
+      let p_time = document.createElement("b");
+      //let p_img = document.createElement('img');
+      let p_content = document.createElement("span");
+      switch (data.type) {
+        case "serverInformation":
+          p_time.innerHTML = new Date().Format("hh:mm:ss") + "&nbsp;";
+          p_content.innerHTML = data.message;
+          break;
+        case "chat":
+          // 聊天区头像
+          p_time.innerHTML =
+            "<img src=https://skin.fxcraft.cn/avatar/player/" +
+            data.name +
+            "?size=16>&nbsp;" +
+            data.name +
+            "：";
+          p_content.innerHTML = data.message;
+          break;
+        default:
+          break;
+      }
+
+      div.setAttribute("class", "msg");
+      //p_time.setAttribute('class' ,'time');
+      //p_content.setAttribute('class','content');
+      div.appendChild(p_time);
+      div.appendChild(p_content);
+      return div;
+    };
+
+    //发送消息
+    function keyup_submit(e) {
+      var evt = window.event || e;
+      if (evt.keyCode == 13) {
+        let message = document.getElementById("comment");
+        //设置不能够发送空消息
+        if (!message.value) {
+          return;
+        }
+        var clear_msg = $("#comment")
+          .val()
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+        let data = {
+          "type": "chat",
+          "message": clear_msg,
+        };
+        ws.send(JSON.stringify(data));
+        message.value = "";
+      }
+    }
+
+    //清空聊天栏
+    function clearChat() {
+      $("#content").html('<div class="msg"><b>已清空聊天框</b></div>');
+    }
+
+    //退出登录
+    function logOut() {
+      mdui.alert("你真的要退出登录嘛", "警告", function () {
+        $.ajax({
+          type: "POST",
+          url: "https://skin.fxcraft.cn/api/yggdrasil/authserver/invalidate",
+          contentType: "application/json",
+          dataType: "json",
+          data: JSON.stringify({
+            accessToken: localStorage.getItem("accessToken"),
+            clientToken: localStorage.getItem("clientToken"),
+          }),
+          success: function (data) {
+            console.log("吊销令牌成功");
+            mdui.snackbar({
+              message: "登出成功，正在重新加载页面...",
+              position: "top",
+            });
+            localStorage.setItem("accessToken", "")
+            localStorage.setItem("clientToken", "")
+            localStorage.setItem("username", "")
+            location.reload();
+          },
+        });
+      });
+    }
+
+  </script>
+</body>
+
+</html>
