@@ -7,20 +7,12 @@
 1. 和朋友一起看直播，视频，电影等
 2. 简单暴力的聊天系统(一个跑在Nodejs上的Websocket服务)
 3. 实时在线人数统计(需要登录帐号)
+4. 类似弹幕姬（`chat.html`）
 
 ## 运行环境
 1. 前端网页: 任意 Web 服务器均可
 2. 后端聊天服务器: `Nodejs`
 3. 账号系统： `Blessing Skin`的`Yggdrasil API`
-
-## BUG列表
-~~1. 聊天区不会自动滚动~~
-2. 聊天区不会自动清空
-~~3. 后端接收到非`json`消息时会爆炸~~
-~~4. 刷新页面后不会重新登陆~~
-
-## 为啥开源
-1. 我满18了
 
 ## 如何安装
 ### 前端网页
@@ -34,8 +26,20 @@
 3. `npm i`
 4. `node s.js`
 
+### 弹幕姬
+这里使用 [Nativefier](https://github.com/nativefier/nativefier) 工具将`chat.html`打包成 .exe 并设置为最上层显示（代码仅供参考）
+```bash
+nativefier --name "LiveChat" --always-on-top true --portable true --disable-dev-tools true "https://live.lazy.ink/chat.html"
+```
+
 ### 推流服务器
 自己百度搜（或者`v`我50帮你解决）
+
+## BUG列表
+1. 聊天区不会自动清空
+
+## 为啥开源
+1. 我满18了
 
 ## 温馨提示
 1. 聊天服务器默认是`http`协议，如果需要`https`请手搓`s.js`或者反向代理（估计我有注释）
@@ -51,5 +55,5 @@
  3. 抹掉所有的版权信息
 
 ## 最后
-如果你觉得这个项目不错欢迎给个`Star`。当然，人嘛，饿了总是要吃饭的...如果你通过下面的二维码向我赞助，我会更加开心~~~0.01也是爱~~
+如果你觉得这个项目不错欢迎给个`Star`。当然，人嘛，饿了总是要吃饭的...如果你通过下面的二维码向我赞助，我会更加开心！~~0.01也是爱~~
 ![img](https://qn-store-pub-tx.seewo.com/676b69a1b8ad4f9391555c127a2331c7165760252223383)
