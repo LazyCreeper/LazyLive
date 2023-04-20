@@ -56,4 +56,4 @@ nativefier --name "LiveChat" --always-on-top true --portable true --disable-dev-
 
 ## 最后
 如果你觉得这个项目不错欢迎给个`Star`。当然，人嘛，饿了总是要吃饭的...如果你通过下面的二维码向我赞助，我会更加开心！~~0.01也是爱~~
-![img](https://qn-store-pub-tx.seewo.com/676b69a1b8ad4f9391555c127a2331c7165760252223383)
+![img](https://cdn.imlazy.ink:233/img/20220924.jpg)
