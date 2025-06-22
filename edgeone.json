@@ -1,0 +1,12 @@
+{
+  "headers": [
+    {
+      "source": "/*",
+      "headers": [
+        {
+          "Access-Control-Allow-Origin": "*"
+        }
+      ]
+    }
+  ]
+}
