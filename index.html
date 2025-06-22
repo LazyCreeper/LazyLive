@@ -154,11 +154,8 @@
             'Authorization': code
           }
         })).json()
-
-        if (data.code >= 300) {
-          clearOAUrl()
-          return mdui.alert(data.msg, "登录失败");
-        }
+        cleanOAUrl()
+        if (data.code >= 300) return mdui.alert(data.msg, "登录失败");
 
         mdui.snackbar({
           message: "OAuth2 认证成功",
@@ -176,7 +173,7 @@
       window.location.href = url
     }
 
-    function clearOAUrl() {
+    function cleanOAUrl() {
       const urlParams = new URLSearchParams(window.location.search);
       urlParams.delete('code')
       urlParams.delete('state')
