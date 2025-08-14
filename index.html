@@ -14,13 +14,13 @@
   <meta name="author" content="Lazy">
   <meta http-equiv="X-UA-Compatible" content="IE=11" />
   <title>Lazy's Live</title>
-  <link rel="icon" href="https://tva1.sinaimg.cn/large/008qLT8ggy1h6q69154tij30ku0lbtl1.jpg" />
+  <link rel="icon" href="https://q1.qlogo.cn/g?b=qq&nk=2211717435&s=640" />
   <link
     href="https://font.sec.miui.com/font/css?family=MiSans:400,500,600,700:Chinese_Simplify,Latin,Chinese_Traditional&amp;display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="./resources/shit.css?version=20220802" />
-  <link rel="stylesheet" href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/mdui/1.0.2/css/mdui.min.css" />
-  <link href="https://cdn.bootcdn.net/ajax/libs/dplayer/1.9.1/DPlayer.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdui/1.0.2/css/mdui.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/dplayer/1.9.1/DPlayer.min.css" rel="stylesheet" />
 
 </head>
 
@@ -46,9 +46,9 @@
               class="mdui-shadow-3 mdui-btn mdui-btn-ripple mdui-color-teal-500 phone-visit">
               <i class="mdui-icon material-icons">&#xe53b;</i> API
             </a>
-            <a href="javascript:toOauth2();" class="mdui-shadow-3 mdui-btn mdui-btn-ripple mdui-color-blue-500">
+            <!-- <a href="javascript:toOauth2();" class="mdui-shadow-3 mdui-btn mdui-btn-ripple mdui-color-blue-500">
               <i class="mdui-icon material-icons">child_care</i> OA TEST
-            </a>
+            </a> -->
             <a href="javascript:void(0);" class="mdui-shadow-3 mdui-btn mdui-btn-ripple">
               <i class="mdui-icon material-icons">&#xe853;</i>
               <span class="login-top" mdui-dialog="{target: '#loginDialog'}">未登录</span></a>
@@ -131,15 +131,13 @@
     <div class="mdui-dialog-actions"><button class="mdui-btn mdui-ripple" mdui-dialog-cancel>取消</button><button
         class="mdui-btn mdui-ripple" mdui-dialog-confirm onclick="login()">登录</button></div>
   </div>
-  <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/hls.js/8.0.0-beta.3/hls.min.js"></script>
-  <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/flv.js/1.6.2/flv.min.js"
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.6.9/hls.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flv.js/1.6.2/flv.min.js" type="application/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dplayer/1.27.1/DPlayer.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
     type="application/javascript"></script>
-  <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/dplayer/1.26.0/DPlayer.min.js"></script>
-  <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.2.1/jquery.min.js"
-    type="application/javascript"></script>
-  <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/mdui/1.0.2/js/mdui.min.js"></script>
-  <script
-    src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/limonte-sweetalert2/11.4.4/sweetalert2.all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mdui/1.0.2/js/mdui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.22.4/sweetalert2.all.min.js"></script>
   <script>
     window.onload = async function () {
       const urlParams = new URLSearchParams(window.location.search);
